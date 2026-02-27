@@ -1,21 +1,30 @@
+import java.util.Scanner;
+
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
-        // --------------------------------------
-// UC3: User input palindrome check
-// --------------------------------------
 
-        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        String choice;
 
-        System.out.print("UC3: Enter a word to check: ");
-        String input = scanner.nextLine();
+        do {
+            System.out.print("Enter a word: ");
+            String input = scanner.nextLine();
 
-        String rev = new StringBuilder(input).reverse().toString();
+            String reversed = new StringBuilder(input).reverse().toString();
 
-        if (input.equalsIgnoreCase(rev)) {
-            System.out.println("Result: " + input + " is a Palindrome\n");
-        } else {
-            System.out.println("Result: " + input + " is NOT a Palindrome\n");
-        }
+            if (input.equalsIgnoreCase(reversed)) {
+                System.out.println(input + " is a Palindrome");
+            } else {
+                System.out.println(input + " is NOT a Palindrome");
+            }
+
+            System.out.print("Do you want to continue? (yes/no): ");
+            choice = scanner.nextLine();
+
+        } while (choice.equalsIgnoreCase("yes"));
+
+        scanner.close();
     }
+
 }
