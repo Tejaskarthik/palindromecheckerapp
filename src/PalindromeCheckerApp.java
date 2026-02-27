@@ -6,16 +6,22 @@ public class PalindromeCheckerApp {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter a sentence: ");
-        String input = scanner.nextLine();
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
 
-        String cleaned = input.replaceAll("[^A-Za-z0-9]", "").toLowerCase();
-        String reversed = new StringBuilder(cleaned).reverse().toString();
+        int temp = number;
+        int reverse = 0;
 
-        if (cleaned.equals(reversed)) {
-            System.out.println("It is a Palindrome");
+        while (temp != 0) {
+            int digit = temp % 10;
+            reverse = reverse * 10 + digit;
+            temp = temp / 10;
+        }
+
+        if (reverse == number) {
+            System.out.println(number + " is a Numeric Palindrome");
         } else {
-            System.out.println("It is NOT a Palindrome");
+            System.out.println(number + " is NOT a Numeric Palindrome");
         }
 
         scanner.close();
